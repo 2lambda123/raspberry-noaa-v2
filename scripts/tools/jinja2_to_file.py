@@ -45,7 +45,7 @@ def main():
     exit(1)
 
   # render template and save to temp html file
-  env = jinja2.Environment(loader=jinja2.FileSystemLoader(path.dirname(j2_template)), trim_blocks=True)
+  env = jinja2.Environment(loader=jinja2.FileSystemLoader(path.dirname(j2_template)), trim_blocks=True, autoescape=True)
   t = env.get_template(path.basename(j2_template))
   with open(out_file, "w+") as fh:
     fh.write(t.render(**configs))
